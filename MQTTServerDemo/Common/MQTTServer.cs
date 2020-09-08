@@ -123,11 +123,11 @@ namespace MQTTServerDemo.Common
 
                     #region 注册监听事件
 
-                    mqttServer.ApplicationMessageReceived += MqttServer_ApplicationMessageReceived;//收到消息事件
-                    mqttServer.ClientSubscribedTopic += MqttServer_ClientSubscribedTopic;//订阅事件
-                    mqttServer.ClientUnsubscribedTopic += MqttServer_ClientUnsubscribedTopic;//取消订阅事件
-                    mqttServer.ClientConnected += MqttServer_ClientConnected;//客户端连接事件
-                    mqttServer.ClientDisconnected += MqttServer_ClientDisconnected;//客户端断开连接事件
+                    //mqttServer.ApplicationMessageReceived += MqttServer_ApplicationMessageReceived;//收到消息事件
+                    //mqttServer.ClientSubscribedTopic += MqttServer_ClientSubscribedTopic;//订阅事件
+                    //mqttServer.ClientUnsubscribedTopic += MqttServer_ClientUnsubscribedTopic;//取消订阅事件
+                    //mqttServer.ClientConnected += MqttServer_ClientConnected;//客户端连接事件
+                    //mqttServer.ClientDisconnected += MqttServer_ClientDisconnected;//客户端断开连接事件
                     //mqttServer.Started += MqttServer_Started;//启动事件
                     //mqttServer.Stopped += MqttServer_Stopped;//停止事件
                     #endregion
@@ -149,10 +149,23 @@ namespace MQTTServerDemo.Common
             }
         }
 
+        public IMqttServer GetServer()
+        {            
+            return mqttServer;
+        }
+
+        public delegate void MqttHandle(Object obj, MqttClientDisconnectedEventArgs e);
+
+        public event MqttHandle ClientDisconnected;
+
         private void MqttServer_ClientDisconnected(object sender, MqttClientDisconnectedEventArgs e)
         {
             var WasDisconnect = e.WasCleanDisconnect ? "已断开" : "未断开";
             Console.WriteLine($"客户端[{e.ClientId}]{WasDisconnect}连接！");
+            if (ClientDisconnected != null)
+            {
+                //MqttHandle(sender,e);
+            }
         }
 
         private void MqttServer_ClientConnected(object sender, MqttClientConnectedEventArgs e)

@@ -44,13 +44,17 @@
             this.Text_PortNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Panel_Main = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Grid_Date = new System.Windows.Forms.DataGridView();
             this.ConectCount_Lb = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Port = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConnectTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status_Control.SuspendLayout();
             this.Panel_Top.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.Panel_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Date)).BeginInit();
             this.SuspendLayout();
             // 
             // Status_Control
@@ -195,23 +199,28 @@
             // 
             // Panel_Main
             // 
-            this.Panel_Main.Controls.Add(this.dataGridView1);
+            this.Panel_Main.Controls.Add(this.Grid_Date);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 102);
             this.Panel_Main.Name = "Panel_Main";
             this.Panel_Main.Size = new System.Drawing.Size(1184, 442);
             this.Panel_Main.TabIndex = 2;
             // 
-            // dataGridView1
+            // Grid_Date
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1184, 442);
-            this.dataGridView1.TabIndex = 0;
+            this.Grid_Date.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_Date.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.IpAddress,
+            this.Port,
+            this.ConnectTime});
+            this.Grid_Date.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Grid_Date.Location = new System.Drawing.Point(0, 0);
+            this.Grid_Date.Name = "Grid_Date";
+            this.Grid_Date.RowHeadersWidth = 51;
+            this.Grid_Date.RowTemplate.Height = 27;
+            this.Grid_Date.Size = new System.Drawing.Size(1184, 442);
+            this.Grid_Date.TabIndex = 0;
             // 
             // ConectCount_Lb
             // 
@@ -220,6 +229,42 @@
             this.ConectCount_Lb.Size = new System.Drawing.Size(150, 20);
             this.ConectCount_Lb.Text = "连接数：10";
             this.ConectCount_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "客户端";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 125;
+            // 
+            // IpAddress
+            // 
+            this.IpAddress.DataPropertyName = "IpAddress";
+            this.IpAddress.HeaderText = "IP地址";
+            this.IpAddress.MinimumWidth = 6;
+            this.IpAddress.Name = "IpAddress";
+            this.IpAddress.ReadOnly = true;
+            this.IpAddress.Width = 125;
+            // 
+            // Port
+            // 
+            this.Port.DataPropertyName = "Port";
+            this.Port.HeaderText = "端口";
+            this.Port.MinimumWidth = 6;
+            this.Port.Name = "Port";
+            this.Port.ReadOnly = true;
+            this.Port.Width = 125;
+            // 
+            // ConnectTime
+            // 
+            this.ConnectTime.DataPropertyName = "ConnectTime";
+            this.ConnectTime.HeaderText = "连接时间";
+            this.ConnectTime.MinimumWidth = 6;
+            this.ConnectTime.Name = "ConnectTime";
+            this.ConnectTime.ReadOnly = true;
+            this.ConnectTime.Width = 125;
             // 
             // MainForm
             // 
@@ -239,7 +284,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Panel_Main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Date)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,7 +298,7 @@
         private System.Windows.Forms.ToolStripStatusLabel TimeLabel_Lb;
         private System.Windows.Forms.Panel Panel_Top;
         private System.Windows.Forms.Panel Panel_Main;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Grid_Date;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Btn_Start;
         private System.Windows.Forms.Label label1;
@@ -265,5 +310,9 @@
         private System.Windows.Forms.TextBox Text_UserName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripStatusLabel ConectCount_Lb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IpAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Port;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConnectTime;
     }
 }

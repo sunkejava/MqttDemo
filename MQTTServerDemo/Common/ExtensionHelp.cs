@@ -62,5 +62,21 @@ namespace MQTTServerDemo.Common
         {
             return String.IsNullOrWhiteSpace(str);
         }
+
+        public static void DelegateControl(this Control cl, Action action)
+        {
+            if (cl.InvokeRequired)
+            {
+                if (cl.IsHandleCreated)
+                {
+                    if (cl.IsDisposed || cl.Disposing) return;
+                }
+                cl.Invoke(action);
+            }
+            else
+            {
+                cl.Invoke(action);
+            }
+        }
     }
 }
