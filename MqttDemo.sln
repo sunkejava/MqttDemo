@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTTClientDemo", "MQTTClientDemo\MQTTClientDemo.csproj", "{F540BCA8-8F75-4E73-8116-C74787ED3F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTTServerDemo", "MQTTServerDemo\MQTTServerDemo.csproj", "{F705C24F-EB69-4673-A17B-7B8087B8DC4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTTServerDemoWin", "MQTTServerDemo\MQTTServerDemoWin.csproj", "{F705C24F-EB69-4673-A17B-7B8087B8DC4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
