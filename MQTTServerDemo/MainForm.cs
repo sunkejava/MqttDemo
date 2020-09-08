@@ -27,7 +27,7 @@ namespace MQTTServerDemo
         private void MainForm_Load(object sender, EventArgs e)
         {
             Status_Control.Items[1].Text = "未启用";
-            Status_Control.Items[2].Text = DateTime.Now.ToString("yyyy年MM月dd日  HH时mm分ss秒");
+            Status_Control.Items[3].Text = DateTime.Now.ToString("yyyy年MM月dd日  HH时mm分ss秒");
             Grid_Date.RowsDefaultCellStyle.BackColor = Color.Bisque;
             Grid_Date.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
             Grid_Date.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -76,8 +76,11 @@ namespace MQTTServerDemo
 
         private void UpdateConnectCount()
         {
-            ConectCount_Lb.Text = "客户端连接数:" + ClientInfos.Count.ToString();
-            TimeLabel_Lb.Text = DateTime.Now.ToString("yyyy年MM月dd日  HH时mm分ss秒");
+            Invoke((new Action(() =>
+            {
+                ConectCount_Lb.Text = "客户端连接数:" + ClientInfos.Count.ToString();
+                TimeLabel_Lb.Text = DateTime.Now.ToString("yyyy年MM月dd日  HH时mm分ss秒");
+            })));                       
             Grid_Date.DelegateControl(() => 
             { 
                 Grid_Date.DataSource = new BindingList<ClientInfo>(ClientInfos);
@@ -89,18 +92,24 @@ namespace MQTTServerDemo
 
         private void MqttServer_Stopped(object sender, EventArgs e)
         {
-            NowStatus_Lb.Text = "未启动";
+            Invoke((new Action(() => 
+            {
+                NowStatus_Lb.Text = "未启动";
+            })));
         }
 
         private void MqttServer_Started(object sender, EventArgs e)
         {
-            NowStatus_Lb.Text = "已启动";
+            Invoke((new Action(() =>
+            {
+                NowStatus_Lb.Text = "已启动";
+            })));
         }
 
         private void MqttServer_ClientDisconnected(object sender, MqttClientDisconnectedEventArgs e)
         {
-            var WasDisconnect = e.WasCleanDisconnect ? "已断开" : "未断开";
-            Console.WriteLine($"客户端[{e.ClientId}]{WasDisconnect}连接！");
+            //var WasDisconnect = e.WasCleanDisconnect ? "已断开" : "未断开";
+            //Console.WriteLine($"客户端[{e.ClientId}]{WasDisconnect}连接！");
             var sc = ClientInfos.Find(o => o.Id.Equals(e.ClientId));
             if (sc != null)
             {
@@ -111,26 +120,26 @@ namespace MQTTServerDemo
 
         private void MqttServer_ClientConnected(object sender, MqttClientConnectedEventArgs e)
         {
-            Console.WriteLine($"客户端[{e.ClientId}]已连接!");
+            //Console.WriteLine($"客户端[{e.ClientId}]已连接!");
             ClientInfos.Add(new ClientInfo() { Id = e.ClientId,IpAddress = "",Port = "",ConnectTime = DateTime.Now.ToString("yyyy年MM月dd日 HH时mm分ss秒")});
             UpdateConnectCount();
         }
 
         private void MqttServer_ClientUnsubscribedTopic(object sender, MqttClientUnsubscribedTopicEventArgs e)
         {
-            Console.WriteLine($"客户端[{e.ClientId}]取消订阅消息[{e.TopicFilter}]");
+            //Console.WriteLine($"客户端[{e.ClientId}]取消订阅消息[{e.TopicFilter}]");
             UpdateConnectCount();
         }
 
         private void MqttServer_ClientSubscribedTopic(object sender, MqttClientSubscribedTopicEventArgs e)
         {
-            Console.WriteLine($"客户端[{e.ClientId}]订阅消息[{e.TopicFilter}]");
+            //Console.WriteLine($"客户端[{e.ClientId}]订阅消息[{e.TopicFilter}]");
             UpdateConnectCount();
         }
 
         private void MqttServer_ApplicationMessageReceived(object sender, MqttApplicationMessageReceivedEventArgs e)
         {
-            Console.WriteLine($"客户端[{e.ClientId}]接收消息：{e.ApplicationMessage.Topic} 载体：{Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
+            //Console.WriteLine($"客户端[{e.ClientId}]接收消息：{e.ApplicationMessage.Topic} 载体：{Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
             UpdateConnectCount();
         }
 

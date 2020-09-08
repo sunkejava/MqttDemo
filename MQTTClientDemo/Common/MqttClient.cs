@@ -20,6 +20,10 @@ namespace MQTTClientDemo.Common
 
         public int Port { get; set; }
 
+        public int AlivePeriod { get; set; } = 2000;
+
+        public int TimeOut { get; set; } = 2000;
+
         public bool IsUseTls { get; set; } = false;
 
         public async Task StartClientAsync()
@@ -32,15 +36,15 @@ namespace MQTTClientDemo.Common
                         .WithClientId(Guid.NewGuid().ToString())
                         .WithTcpServer(ServerHost, Port)
                         .WithCredentials(UserName, Password)
-                        .WithTls(new MqttClientOptionsBuilderTlsParameters() 
-                        {
-                            UseTls = IsUseTls,
-                            SslProtocol = System.Security.Authentication.SslProtocols.Tls12
-                        })
+                        //.WithTls(new MqttClientOptionsBuilderTlsParameters() 
+                        //{
+                        //    UseTls = IsUseTls,
+                        //    SslProtocol = System.Security.Authentication.SslProtocols.Tls12
+                        //})
                         .WithCleanSession(false)
-                        .WithKeepAlivePeriod(TimeSpan.FromSeconds(2000))
+                        .WithKeepAlivePeriod(TimeSpan.FromSeconds(AlivePeriod))
                         .WithCleanSession(true)
-                        .WithCommunicationTimeout(TimeSpan.FromSeconds(2000))
+                        //.WithCommunicationTimeout(TimeSpan.FromSeconds(TimeOut))
                         .Build();
                     mqttClient = new MqttFactory().CreateMqttClient();
 
@@ -52,7 +56,7 @@ namespace MQTTClientDemo.Common
 
                     #endregion
 
-                    await Task.Run(async() => { await mqttClient.ConnectAsync(option); });
+                    await mqttClient.ConnectAsync(option);
                 }
                 catch (Exception ex)
                 {
@@ -69,7 +73,7 @@ namespace MQTTClientDemo.Common
                 {
                     if (mqttClient.IsConnected)
                     {
-                        await Task.Run(async() => await mqttClient.DisconnectAsync());
+                        await mqttClient.DisconnectAsync();
                     }
                 }
                 catch (Exception ex)
@@ -89,17 +93,17 @@ namespace MQTTClientDemo.Common
         /// </summary>
         /// <param name="topic">主题</param>
         /// <returns></returns>
-        public async Task SubscribeAsync(string topic)
+        public void Subscribe(string topic)
         {
             if (mqttClient != null && mqttClient.IsConnected)
             {
                 try
                 {
-                    await Task.Run(() => mqttClient.SubscribeAsync(new TopicFilterBuilder()
+                    mqttClient.SubscribeAsync(new TopicFilterBuilder()
                         .WithTopic(topic)
                         .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce)
                         .Build()
-                        ).Wait());
+                        ).Wait();
                 }
                 catch (Exception ex)
                 {
@@ -113,14 +117,13 @@ namespace MQTTClientDemo.Common
         /// </summary>
         /// <param name="topic">主题</param>
         /// <returns></returns>
-        public async Task UnSubscribeAsync(string topic)
+        public void UnSubscribe(string topic)
         {
             if (mqttClient != null && mqttClient.IsConnected)
             {
                 try
                 {
-                    await Task.Run(() => mqttClient.UnsubscribeAsync(topic
-                        ).Wait());
+                    mqttClient.UnsubscribeAsync(topic).Wait();
                 }
                 catch (Exception ex)
                 {
@@ -136,19 +139,19 @@ namespace MQTTClientDemo.Common
         /// <param name="topic">主题</param>
         /// <param name="inputStr">消息</param>
         /// <returns></returns>
-        public async Task PublishTopicAsync(string topic,string inputStr)
+        public void PublishTopicAsync(string topic,string inputStr)
         {
             if (mqttClient != null && mqttClient.IsConnected)
             {
                 try
                 {
-                    await Task.Run(() => mqttClient.PublishAsync(new MqttApplicationMessageBuilder()
+                    mqttClient.PublishAsync(new MqttApplicationMessageBuilder()
                         .WithTopic(topic)
                         .WithPayload(inputStr)
                         .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtMostOnce)
                         .WithRetainFlag(true)
                         .Build()
-                        ).Wait());
+                        ).Wait();
                 }
                 catch (Exception ex)
                 {
