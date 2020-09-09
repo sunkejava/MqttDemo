@@ -127,19 +127,19 @@ namespace MQTTServerDemo
 
         private void MqttServer_ClientUnsubscribedTopic(object sender, MqttClientUnsubscribedTopicEventArgs e)
         {
-            //Console.WriteLine($"客户端[{e.ClientId}]取消订阅消息[{e.TopicFilter}]");
+            Console.WriteLine($"客户端[{e.ClientId}]取消订阅消息[{e.TopicFilter}]");
             UpdateConnectCount();
         }
 
         private void MqttServer_ClientSubscribedTopic(object sender, MqttClientSubscribedTopicEventArgs e)
         {
-            //Console.WriteLine($"客户端[{e.ClientId}]订阅消息[{e.TopicFilter}]");
+            Console.WriteLine($"客户端[{e.ClientId}]订阅消息[{e.TopicFilter}]");
             UpdateConnectCount();
         }
 
         private void MqttServer_ApplicationMessageReceived(object sender, MqttApplicationMessageReceivedEventArgs e)
         {
-            //Console.WriteLine($"客户端[{e.ClientId}]接收消息：{e.ApplicationMessage.Topic} 载体：{Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
+            Console.WriteLine($"客户端[{e.ClientId}]接收消息：{e.ApplicationMessage.Topic} 载体：{Encoding.UTF8.GetString(e.ApplicationMessage.Payload)} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
             UpdateConnectCount();
         }
 

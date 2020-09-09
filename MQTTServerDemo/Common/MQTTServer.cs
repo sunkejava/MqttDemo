@@ -38,12 +38,12 @@ namespace MQTTServerDemo.Common
         /// <summary>
         /// 拦截客户端消息Topic
         /// </summary>
-        public string MessageInterceptorFilter { get; set; }
+        public string MessageInterceptorFilter { get; set; } = "/myTopic/WithTimestamp/#";
 
         /// <summary>
         /// 拦截订阅消息
         /// </summary>
-        public string SubscriptionInterceptor { get; set; }
+        public string SubscriptionInterceptor { get; set; } = "";
 
         /// <summary>
         /// 是否使用证书
