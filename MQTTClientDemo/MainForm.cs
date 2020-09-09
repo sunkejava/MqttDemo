@@ -183,7 +183,8 @@ namespace MQTTClientDemo
                     while (mqttClient.IsConnected)
                     {
                         inputString.Clear();
-                        inputString.Append(sj.ToBase64(sj.GetScreen()));
+                        //var bmpStr = sj.GetBase64StrOfScreen();
+                        inputString.Append(sj.GetBase64StrOfScreen());
                         client.PublishTopicAsync("DeclineScreen", inputString.ToString());
                     }
                 }

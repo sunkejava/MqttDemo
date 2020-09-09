@@ -11,18 +11,26 @@ namespace MQTTClientDemo.Common
 {
     public class ScreenHelp
     {
-        public Bitmap GetScreen()
+        public string GetBase64StrOfScreen()
         {
             try
             {
-                using (Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height))
+                Rectangle tScreenRect = new Rectangle(0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                using (Bitmap bitmap = new Bitmap(tScreenRect.Width, tScreenRect.Height))
                 {
                     using (Graphics g = Graphics.FromImage(bitmap))
                     {
                         g.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+                        g.DrawImage(bitmap, 0, 0, tScreenRect, GraphicsUnit.Pixel);
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] arr = new byte[ms.Length];
+                            ms.Position = 0;
+                            ms.Read(arr, 0, (int)ms.Length);
+                            return Convert.ToBase64String(arr);
+                        }
                     }
-                    bitmap.Save(@"d:\a.jpg");
-                    return bitmap;
                 }
             }
             catch (Exception ex)

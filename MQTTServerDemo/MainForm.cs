@@ -50,10 +50,12 @@ namespace MQTTServerDemo
             if (IsStart)
             {
                 await server.StartServer();
+                NowStatus_Lb.Text = "已启动";
             }
             else 
             {
                 await server.StopServer();
+                NowStatus_Lb.Text = "未启动";
             }
             mqttServer = server.GetServer();
 

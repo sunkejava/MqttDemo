@@ -22,8 +22,8 @@ namespace MQTTClientDemo
         {
             try
             {
-                ScreenHelp sh = new ScreenHelp();
-                Pic_Info.Image = sh.GetScreen();
+                //ScreenHelp sh = new ScreenHelp();
+                //Pic_Info.Image = sh.GetScreen();
             }
             catch (Exception ex)
             {

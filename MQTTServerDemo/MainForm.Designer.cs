@@ -108,7 +108,7 @@
             this.Panel_Top.Controls.Add(this.groupBox1);
             this.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Top.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Top.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel_Top.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Top.Name = "Panel_Top";
             this.Panel_Top.Size = new System.Drawing.Size(888, 82);
             this.Panel_Top.TabIndex = 1;
@@ -116,7 +116,7 @@
             // Btn_Start
             // 
             this.Btn_Start.Location = new System.Drawing.Point(748, 20);
-            this.Btn_Start.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Start.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Start.Name = "Btn_Start";
             this.Btn_Start.Size = new System.Drawing.Size(91, 45);
             this.Btn_Start.TabIndex = 1;
@@ -138,9 +138,9 @@
             this.groupBox1.Controls.Add(this.Text_PortNum);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(9, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(702, 77);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -149,10 +149,11 @@
             // Text_Pwd
             // 
             this.Text_Pwd.Location = new System.Drawing.Point(300, 50);
-            this.Text_Pwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text_Pwd.Margin = new System.Windows.Forms.Padding(2);
             this.Text_Pwd.Name = "Text_Pwd";
             this.Text_Pwd.Size = new System.Drawing.Size(93, 21);
             this.Text_Pwd.TabIndex = 7;
+            this.Text_Pwd.Text = "123456";
             // 
             // label3
             // 
@@ -167,10 +168,11 @@
             // Text_UserName
             // 
             this.Text_UserName.Location = new System.Drawing.Point(300, 12);
-            this.Text_UserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text_UserName.Margin = new System.Windows.Forms.Padding(2);
             this.Text_UserName.Name = "Text_UserName";
             this.Text_UserName.Size = new System.Drawing.Size(93, 21);
             this.Text_UserName.TabIndex = 5;
+            this.Text_UserName.Text = "sa";
             // 
             // label4
             // 
@@ -185,10 +187,11 @@
             // Text_ConnectionCount
             // 
             this.Text_ConnectionCount.Location = new System.Drawing.Point(80, 52);
-            this.Text_ConnectionCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text_ConnectionCount.Margin = new System.Windows.Forms.Padding(2);
             this.Text_ConnectionCount.Name = "Text_ConnectionCount";
             this.Text_ConnectionCount.Size = new System.Drawing.Size(93, 21);
             this.Text_ConnectionCount.TabIndex = 3;
+            this.Text_ConnectionCount.Text = "3500";
             // 
             // label2
             // 
@@ -203,10 +206,11 @@
             // Text_PortNum
             // 
             this.Text_PortNum.Location = new System.Drawing.Point(80, 14);
-            this.Text_PortNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text_PortNum.Margin = new System.Windows.Forms.Padding(2);
             this.Text_PortNum.Name = "Text_PortNum";
             this.Text_PortNum.Size = new System.Drawing.Size(93, 21);
             this.Text_PortNum.TabIndex = 1;
+            this.Text_PortNum.Text = "50000";
             // 
             // label1
             // 
@@ -223,7 +227,7 @@
             this.Panel_Main.Controls.Add(this.Grid_Date);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 82);
-            this.Panel_Main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel_Main.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Main.Name = "Panel_Main";
             this.Panel_Main.Size = new System.Drawing.Size(888, 348);
             this.Panel_Main.TabIndex = 2;
@@ -239,7 +243,7 @@
             this.ConnectTime});
             this.Grid_Date.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Grid_Date.Location = new System.Drawing.Point(0, 0);
-            this.Grid_Date.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Grid_Date.Margin = new System.Windows.Forms.Padding(2);
             this.Grid_Date.Name = "Grid_Date";
             this.Grid_Date.RowHeadersWidth = 51;
             this.Grid_Date.RowTemplate.Height = 27;
@@ -286,7 +290,7 @@
             this.Controls.Add(this.Panel_Main);
             this.Controls.Add(this.Panel_Top);
             this.Controls.Add(this.Status_Control);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MqttNet服务器端";
