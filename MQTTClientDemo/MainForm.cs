@@ -51,12 +51,12 @@ namespace MQTTClientDemo
                 if (IsStart)
                 {
                     await client.StartClientAsync();
-                    Status_Label.Text = $"状态：已连接!";
+                    //Status_Label.Text = $"状态：已连接!";
                 }
                 else
                 {
                     await client.StopClientAsync();
-                    Status_Label.Text = $"状态：未连接!";
+                    //Status_Label.Text = $"状态：未连接!";
                 }
                 mqttClient = client.GetClient();
                 #region 事件监听
@@ -71,7 +71,8 @@ namespace MQTTClientDemo
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"操作异常，原因为：{ex.Message}");
+                LogHelper.ToLog($"连接操作异常，原因为：{ex.Message}");
+                MessageBox.Show($"连接操作异常，原因为：{ex.Message}");
             }
         }
 
@@ -98,7 +99,7 @@ namespace MQTTClientDemo
             Invoke((new Action(() =>
             {
                 txtReceiveMessage.AppendText($">> {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)}{Environment.NewLine}");
-                if (e.ApplicationMessage.Topic.Equals("DeclineScreen"))
+                if (!sh.IsDisposed && !sh.Disposing && e.ApplicationMessage.Topic.Equals("DeclineScreen"))
                 {
                     sh.UpdateInfo(sj.Base64StrToImage(Encoding.UTF8.GetString(e.ApplicationMessage.Payload)),e.ClientId);
                 }
@@ -123,7 +124,8 @@ namespace MQTTClientDemo
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"操作异常，原因为：{ex.Message}");
+                LogHelper.ToLog($"发布主题操作异常，原因为：{ex.Message}");
+                MessageBox.Show($"发布主题操作异常，原因为：{ex.Message}");
             }
         }
 
@@ -150,7 +152,7 @@ namespace MQTTClientDemo
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"操作异常，原因为：{ex.Message}");
+                LogHelper.ToLog($"订阅主题操作异常，原因为：{ex.Message}");
             }
             
         }
@@ -173,19 +175,16 @@ namespace MQTTClientDemo
             }
         }
         ScreenHelp sj = new ScreenHelp();
-        private void SendScreen()
+        private async void SendScreen()
         {
             try
             {
                 if (mqttClient.IsConnected)
                 {
-                    StringBuilder inputString = new StringBuilder();
                     while (mqttClient.IsConnected)
                     {
-                        inputString.Clear();
-                        //var bmpStr = sj.GetBase64StrOfScreen();
-                        inputString.Append(sj.GetBase64StrOfScreen());
-                        client.PublishTopicAsync("DeclineScreen", inputString.ToString());
+                        client.PublishTopicAsync("DeclineScreen", sj.GetBase64StrOfScreen());
+                        await Task.Delay(500);
                     }
                 }
                 else
@@ -196,7 +195,7 @@ namespace MQTTClientDemo
             }
             catch (Exception ex)
             {
-                throw ex;
+                LogHelper.ToLog("桌面发送异常，原因为：" + ex);
             }
         }
 

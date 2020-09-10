@@ -65,24 +65,24 @@
             this.NowStatus_Lb,
             this.ConectCount_Lb,
             this.TimeLabel_Lb});
-            this.Status_Control.Location = new System.Drawing.Point(0, 430);
+            this.Status_Control.Location = new System.Drawing.Point(0, 544);
             this.Status_Control.Name = "Status_Control";
-            this.Status_Control.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.Status_Control.Size = new System.Drawing.Size(888, 26);
+            this.Status_Control.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.Status_Control.Size = new System.Drawing.Size(1184, 26);
             this.Status_Control.TabIndex = 0;
             this.Status_Control.Text = "statusStrip1";
             // 
             // AppName_Lb
             // 
             this.AppName_Lb.Name = "AppName_Lb";
-            this.AppName_Lb.Size = new System.Drawing.Size(105, 21);
+            this.AppName_Lb.Size = new System.Drawing.Size(133, 20);
             this.AppName_Lb.Text = "MqttNet服务端：";
             // 
             // NowStatus_Lb
             // 
             this.NowStatus_Lb.AutoSize = false;
             this.NowStatus_Lb.Name = "NowStatus_Lb";
-            this.NowStatus_Lb.Size = new System.Drawing.Size(225, 21);
+            this.NowStatus_Lb.Size = new System.Drawing.Size(225, 20);
             this.NowStatus_Lb.Text = "当前状态:未启用";
             this.NowStatus_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -90,7 +90,7 @@
             // 
             this.ConectCount_Lb.AutoSize = false;
             this.ConectCount_Lb.Name = "ConectCount_Lb";
-            this.ConectCount_Lb.Size = new System.Drawing.Size(150, 21);
+            this.ConectCount_Lb.Size = new System.Drawing.Size(150, 20);
             this.ConectCount_Lb.Text = "连接数：10";
             this.ConectCount_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -98,7 +98,7 @@
             // 
             this.TimeLabel_Lb.AutoSize = false;
             this.TimeLabel_Lb.Name = "TimeLabel_Lb";
-            this.TimeLabel_Lb.Size = new System.Drawing.Size(300, 21);
+            this.TimeLabel_Lb.Size = new System.Drawing.Size(300, 20);
             this.TimeLabel_Lb.Text = "当前时间: 2020年09月28日   15时25分35秒";
             this.TimeLabel_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -108,17 +108,17 @@
             this.Panel_Top.Controls.Add(this.groupBox1);
             this.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Top.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Top.Margin = new System.Windows.Forms.Padding(2);
+            this.Panel_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Top.Name = "Panel_Top";
-            this.Panel_Top.Size = new System.Drawing.Size(888, 82);
+            this.Panel_Top.Size = new System.Drawing.Size(1184, 102);
             this.Panel_Top.TabIndex = 1;
             // 
             // Btn_Start
             // 
-            this.Btn_Start.Location = new System.Drawing.Point(748, 20);
-            this.Btn_Start.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Start.Location = new System.Drawing.Point(997, 25);
+            this.Btn_Start.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Start.Name = "Btn_Start";
-            this.Btn_Start.Size = new System.Drawing.Size(91, 45);
+            this.Btn_Start.Size = new System.Drawing.Size(121, 56);
             this.Btn_Start.TabIndex = 1;
             this.Btn_Start.Text = "启动";
             this.Btn_Start.UseVisualStyleBackColor = true;
@@ -137,88 +137,84 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Text_PortNum);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(9, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(702, 77);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(936, 96);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置";
             // 
             // Text_Pwd
             // 
-            this.Text_Pwd.Location = new System.Drawing.Point(300, 50);
-            this.Text_Pwd.Margin = new System.Windows.Forms.Padding(2);
+            this.Text_Pwd.Location = new System.Drawing.Point(400, 62);
+            this.Text_Pwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text_Pwd.Name = "Text_Pwd";
-            this.Text_Pwd.Size = new System.Drawing.Size(93, 21);
+            this.Text_Pwd.Size = new System.Drawing.Size(123, 25);
             this.Text_Pwd.TabIndex = 7;
             this.Text_Pwd.Text = "123456";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(250, 55);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(333, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(68, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "密  码：";
             // 
             // Text_UserName
             // 
-            this.Text_UserName.Location = new System.Drawing.Point(300, 12);
-            this.Text_UserName.Margin = new System.Windows.Forms.Padding(2);
+            this.Text_UserName.Location = new System.Drawing.Point(400, 15);
+            this.Text_UserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text_UserName.Name = "Text_UserName";
-            this.Text_UserName.Size = new System.Drawing.Size(93, 21);
+            this.Text_UserName.Size = new System.Drawing.Size(123, 25);
             this.Text_UserName.TabIndex = 5;
             this.Text_UserName.Text = "sa";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 18);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(333, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "用户名：";
             // 
             // Text_ConnectionCount
             // 
-            this.Text_ConnectionCount.Location = new System.Drawing.Point(80, 52);
-            this.Text_ConnectionCount.Margin = new System.Windows.Forms.Padding(2);
+            this.Text_ConnectionCount.Location = new System.Drawing.Point(107, 65);
+            this.Text_ConnectionCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text_ConnectionCount.Name = "Text_ConnectionCount";
-            this.Text_ConnectionCount.Size = new System.Drawing.Size(93, 21);
+            this.Text_ConnectionCount.Size = new System.Drawing.Size(123, 25);
             this.Text_ConnectionCount.TabIndex = 3;
             this.Text_ConnectionCount.Text = "3500";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 58);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(40, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "连接数：";
             // 
             // Text_PortNum
             // 
-            this.Text_PortNum.Location = new System.Drawing.Point(80, 14);
-            this.Text_PortNum.Margin = new System.Windows.Forms.Padding(2);
+            this.Text_PortNum.Location = new System.Drawing.Point(107, 18);
+            this.Text_PortNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text_PortNum.Name = "Text_PortNum";
-            this.Text_PortNum.Size = new System.Drawing.Size(93, 21);
+            this.Text_PortNum.Size = new System.Drawing.Size(123, 25);
             this.Text_PortNum.TabIndex = 1;
-            this.Text_PortNum.Text = "50000";
+            this.Text_PortNum.Text = "60000";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(40, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "端口号：";
             // 
@@ -226,10 +222,10 @@
             // 
             this.Panel_Main.Controls.Add(this.Grid_Date);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Main.Location = new System.Drawing.Point(0, 82);
-            this.Panel_Main.Margin = new System.Windows.Forms.Padding(2);
+            this.Panel_Main.Location = new System.Drawing.Point(0, 102);
+            this.Panel_Main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(888, 348);
+            this.Panel_Main.Size = new System.Drawing.Size(1184, 442);
             this.Panel_Main.TabIndex = 2;
             // 
             // Grid_Date
@@ -243,11 +239,11 @@
             this.ConnectTime});
             this.Grid_Date.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Grid_Date.Location = new System.Drawing.Point(0, 0);
-            this.Grid_Date.Margin = new System.Windows.Forms.Padding(2);
+            this.Grid_Date.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Grid_Date.Name = "Grid_Date";
             this.Grid_Date.RowHeadersWidth = 51;
             this.Grid_Date.RowTemplate.Height = 27;
-            this.Grid_Date.Size = new System.Drawing.Size(888, 348);
+            this.Grid_Date.Size = new System.Drawing.Size(1184, 442);
             this.Grid_Date.TabIndex = 0;
             // 
             // Id
@@ -284,13 +280,13 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 456);
+            this.ClientSize = new System.Drawing.Size(1184, 570);
             this.Controls.Add(this.Panel_Main);
             this.Controls.Add(this.Panel_Top);
             this.Controls.Add(this.Status_Control);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MqttNet服务器端";

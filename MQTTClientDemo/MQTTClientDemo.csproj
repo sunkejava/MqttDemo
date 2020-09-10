@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ExtensionHelp.cs" />
+    <Compile Include="Common\LogHelper.cs" />
     <Compile Include="Common\MqttClient.cs" />
     <Compile Include="Common\ScreenHelp.cs" />
     <Compile Include="MainForm.cs">

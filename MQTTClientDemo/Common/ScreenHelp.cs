@@ -21,7 +21,7 @@ namespace MQTTClientDemo.Common
                     using (Graphics g = Graphics.FromImage(bitmap))
                     {
                         g.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-                        g.DrawImage(bitmap, 0, 0, tScreenRect, GraphicsUnit.Pixel);
+                        //g.DrawImage(bitmap, 0, 0, tScreenRect, GraphicsUnit.Pixel);
                         using (MemoryStream ms = new MemoryStream())
                         {
                             bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -35,8 +35,9 @@ namespace MQTTClientDemo.Common
             }
             catch (Exception ex)
             {
-                throw ex;
-            }   
+                LogHelper.ToLog("获取桌面数据异常，原因为： " + ex);
+                return "";
+            }
         }
 
         public string ToBase64(Bitmap bmp)
@@ -53,7 +54,7 @@ namespace MQTTClientDemo.Common
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ImgToBase64String 转换失败 Exception:" + ex.Message);
+                LogHelper.ToLog("ImgToBase64String 转换失败 Exception:" + ex.Message);
                 return "";
             }
         }
@@ -72,7 +73,7 @@ namespace MQTTClientDemo.Common
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Base64StringToImage 转换失败/nException：" + ex.Message);
+                LogHelper.ToLog("Base64StringToImage 转换失败/nException：" + ex.Message);
                 return null;
             }
         }

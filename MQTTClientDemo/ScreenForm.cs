@@ -20,24 +20,23 @@ namespace MQTTClientDemo
 
         private void ScreenForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                //ScreenHelp sh = new ScreenHelp();
-                //Pic_Info.Image = sh.GetScreen();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            
         }
 
         public void UpdateInfo(Bitmap bmp,string id)
         {
-            Invoke(new Action(() => 
+            try
             {
-                Pic_Info.Image = bmp;
-                Status_Lb.Text = $"显示用户{id}的桌面";
-            }));
+                Invoke(new Action(() =>
+                {
+                    Pic_Info.Image = bmp;
+                    Status_Lb.Text = $"显示用户{id}的桌面";
+                }));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.ToLog("接收桌面数据失败，原因为：" + ex);
+            }
         }
     }
 }
